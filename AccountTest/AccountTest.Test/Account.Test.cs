@@ -6,46 +6,82 @@ namespace AccountTest.Test
     public class Tester
     {
         [Test]
-        public void AccountCannotHaveNegativeOverdraftLimit()
+        [TestCase(100, -101, false)]
+        [TestCase(300.30, 300.29, true)]
+        [TestCase(400.40, 400.40, true)]
+        [TestCase(500, 500.000000001, false)]
+        public void AccountCannotOverstepItsOverdraftLimitWhenWithdrawing(double overdraftLimit, double withdrawl,
+            bool expectedResult)
+        {
+            // Arrange
+            Account account = new(overdraftLimit);
+
+            // Act
+            var result = account.Withdraw(withdrawl);
+
+            // Assert
+            result.Should().Be(expectedResult);
+        }
+
+        [Test]
+        [TestCase(0)]
+        [TestCase(100)]
+        [TestCase(Double.MaxValue)]
+        public void AccountAcceptsValidOverdraftLimit(double overdraftLimit)
         {
             // Arrange
 
             // Act
-            Account account = new(-20);
+            Account account = new(overdraftLimit);
+
+            // Assert
+            account.OverDraftLimit.Should().Be(overdraftLimit);
+        }
+
+        [Test]
+        [TestCase(-20)]
+        [TestCase(-555.55)]
+        [TestCase(-0)]
+        public void AccountCannotHaveInvalidOverdraftLimit(double overdraftLimit)
+        {
+            // Arrange
+
+            // Act
+            Account account = new(overdraftLimit);
 
             // Assert
             account.OverDraftLimit.Should().Be(0);
         }
 
         [Test]
-        public void DepositMethodWillNotAcceptNegativeNumbers()
+        [TestCase(100, -46)]
+        [TestCase(1, 0)]
+        public void DepositMethodWillNotAcceptInvalidNumbers(double overdraftLimit, double deposit)
         {
             // Arrange
-            const double overdraftLimit = 100;
-
             var account = new Account(overdraftLimit);
 
             account.OverDraftLimit.Should().Be(overdraftLimit);
 
             // Act 
-            var result = account.Deposit(-46);
+            var result = account.Deposit(deposit);
 
             // Assert
             result.Should().BeFalse();
         }
 
         [Test]
-        public void WithdrawMethodWillNotAcceptNegativeNumbers()
+        [TestCase(555.55, -1.43)]
+        [TestCase(777.33, 0)]
+        public void WithdrawMethodWillNotAcceptInvalidNumbers(double overdraftLimit, double withdrawl)
         {
             // Arrange
-            const double overdraftLimit = 6577.44;
-
             var account = new Account(overdraftLimit);
 
             account.OverDraftLimit.Should().Be(overdraftLimit);
 
             // Act
-            var result = account.Withdraw(-8.44);
+            var result = account.Withdraw(withdrawl);
 
             // Assert
             result.Should().BeFalse();
