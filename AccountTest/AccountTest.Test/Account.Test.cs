@@ -3,8 +3,6 @@
     [TestFixture]
     public class Tester
     {
-        private readonly double epsilon = 1e-6;
-
         [Test]
         public void AccountCannotHaveNegativeOverdraftLimit()
         {
