@@ -1,6 +1,6 @@
 # TestDomeTests
 
-My answers to the public tests found here https://www.testdome.com/
+My answers and improvements to the public tests found here https://www.testdome.com/
 
 Methods will be refactored, rewritten for modern .NET, packages will be updated and coding issues in the public tests will be fixed.
 
