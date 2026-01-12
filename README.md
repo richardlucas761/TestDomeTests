@@ -30,6 +30,14 @@ Simple scripts will be included inline below, more complicated solutions have th
 
 General purpose Microsoft SQL Server Database Project for use with SQL coding challenges.
 
+#### Online Alternative
+
+https://sqliteonline.com
+
+There is an online alternative here, referenced in the Test Demo example script:
+
+https://www.testdome.com/files/question-media/cf228b4f-3fbd-47b6-ac7f-1dbadf35c780/workers.txt
+
 ### /SQLWorkers
 
 https://www.testdome.com/questions/sql/workers/102293
@@ -54,15 +62,15 @@ Solution SQL is here:
 
 #### Smells / Concerns
 
-##### SQL script to create the database table and data in challenge
+https://www.testdome.com/files/question-media/cf228b4f-3fbd-47b6-ac7f-1dbadf35c780/workers.txt
 
 *INT* can be used instead of *INTEGER*.
 
 It's good practice to enclose column names with [] braces, particularly for reserved words like ```[name]```.
 
-It's good practice to fully qualify the schema, this is better ```[dbo].[Employees]```.
+It's good practice to fully qualify the schema; this is better ```[dbo].[Employees]```.
 
-This syntax is fine for ad-hoc queries ```select * from [database]..Employees``` but this may break later if the Employees table moves to a different schema ```[Staff].[Employees]```, for example.
+This syntax is fine for ad-hoc queries ```select * from [database]..Employees``` but this may break later if the Employees table moves to a different schema ```[Staff].[Employees]```.
 
 We could use INT IDENTITY(1, 1) rather than explicitly specifying the primary key values here but this is "good enough".
 
