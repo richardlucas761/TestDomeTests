@@ -6,6 +6,34 @@ namespace AccountTest.Test
     public class Tester
     {
         [Test]
+        public void DepositAndWithdrawGiveCorrectBalance()
+        {
+            // Arrange
+            const double depositAmount = 150.50;
+            const double withdrawlAmount = 50.15;
+
+            Account account = new(5000);
+
+            // Act
+            // Assert
+            account.Balance.Should().Be(0);
+
+            var deposit = account.Deposit(depositAmount);
+
+            deposit.Should().BeTrue();
+
+            account.Balance.Should().Be(depositAmount);
+
+            var withdrawl = account.Withdraw(withdrawlAmount);
+
+            withdrawl.Should().BeTrue();
+
+            account.Balance.Should().Be(depositAmount - withdrawlAmount);
+
+            account.OverDraftLimit.Should().Be(5000);
+        }
+
+        [Test]
         [TestCase(100, -101, false)]
         [TestCase(300.30, 300.29, true)]
         [TestCase(400.40, 400.40, true)]
@@ -26,7 +54,8 @@ namespace AccountTest.Test
         [Test]
         [TestCase(0)]
         [TestCase(100)]
-        [TestCase(Double.MaxValue)]
+        [TestCase(500.33)]
+        [TestCase(double.MaxValue)]
         public void AccountAcceptsValidOverdraftLimit(double overdraftLimit)
         {
             // Arrange
@@ -42,6 +71,7 @@ namespace AccountTest.Test
         [TestCase(-20)]
         [TestCase(-555.55)]
         [TestCase(-0)]
+        [TestCase(double.MinValue)]
         public void AccountCannotHaveInvalidOverdraftLimit(double overdraftLimit)
         {
             // Arrange

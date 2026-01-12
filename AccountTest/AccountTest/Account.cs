@@ -43,7 +43,7 @@
         {
             if (Balance - amount >= -overDraftLimit && amount > 0)
             {
-                Balance = -amount;
+                Balance -= amount;
                 return true;
             }
             return false;

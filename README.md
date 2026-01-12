@@ -2,15 +2,15 @@
 
 My answers to the public tests found here https://www.testdome.com/
 
-Methods will be refactored, rewritten for modern .NET, packages will be updated and coding issues will be fixed.
+Methods will be refactored, rewritten for modern .NET, packages will be updated and coding issues in the public tests will be fixed.
 
 ---
 
 ## /AccountTest
 
-https://www.testdome.com/questions/c-sharp/account-test/146077
+C#, Unit Tests
 
-TODO the deposit and withdraw methods deposit or withdraw the correct amounts
+https://www.testdome.com/questions/c-sharp/account-test/146077
 
 ### Code smells / concerns
 
@@ -19,3 +19,5 @@ At the time of writing the code under test includes ```this.x``` statements wher
 **NUnit 3.12** was released in 2019, this code test seems out of date.
 
 Deposits and withdrawls of zero are nonsensical.
+
+```double.MinValue``` and ```double.MaxValue``` are preferred.
