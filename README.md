@@ -4,8 +4,6 @@ My answers to the public tests found here https://www.testdome.com/
 
 Methods will be refactored, rewritten for modern .NET, packages will be updated and coding issues in the public tests will be fixed.
 
----
-
 ## /AccountTest
 
 C#, Unit Tests
@@ -21,3 +19,17 @@ At the time of writing the code under test includes ```this.x``` statements wher
 Deposits and withdrawls of zero are nonsensical.
 
 ```double.MinValue``` and ```double.MaxValue``` are preferred.
+
+## /SQLSessions
+
+Microsoft SQL Server / TSQL
+
+https://www.testdome.com/tests/sql-online-test/12
+
+There is a file ```sessionsSolution.sql``` with the same content in the sub directory but perhaps it would be simpler to just paste the SQL here! More discoverable in this README or in a file? 😊
+
+```
+SELECT [userId], AVG([duration]) FROM [sessions]
+GROUP BY [userId] 
+HAVING count(1) > 1
+```
