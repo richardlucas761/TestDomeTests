@@ -30,13 +30,13 @@ Simple scripts will be included inline below, more complicated solutions have th
 
 General purpose Microsoft SQL Server Database Project for use with SQL coding challenges.
 
-### SQLWorkers
+### /SQLWorkers
 
 https://www.testdome.com/questions/sql/workers/102293
 
-```
-TBC
-```
+Solution SQL is here:
+
+```\SQLWorkers\SQLWorkersSolution.sql```
 
 #### Expected output
 
@@ -54,13 +54,17 @@ TBC
 
 #### Smells / Concerns
 
-##### SQL script
+##### SQL script to create the database table and data in challenge
 
 *INT* can be used instead of *INTEGER*.
 
- We could use INT IDENTITY(1, 1) for the primary key but this is "good enough".
-
 It's good practice to enclose column names with [] braces, particularly for reserved words like ```[name]```.
+
+It's good practice to fully qualify the schema, this is better ```[dbo].[Employees]```.
+
+This syntax is fine for ad-hoc queries ```select * from [database]..Employees``` but this may break later if the Employees table moves to a different schema ```[Staff].[Employees]```, for example.
+
+We could use INT IDENTITY(1, 1) rather than explicitly specifying the primary key values here but this is "good enough".
 
 ```
 CREATE TABLE employees (
