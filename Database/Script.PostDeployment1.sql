@@ -12,15 +12,10 @@ Post-Deployment Script Template
 
 /* Employees */
 
-/*
-
-id    managerId    name    
------------------------
-1                  John    
-2     1            Mike 
-
-*/
-
 TRUNCATE TABLE [Employees]
+GO
+
+INSERT INTO [dbo].[Employees] ([Id], [ManagerId], [Name]) VALUES (1, NULL, 'John')
+INSERT INTO [dbo].[Employees] ([Id], [ManagerId], [Name]) VALUES (2, 1, 'Mike')
 GO
 

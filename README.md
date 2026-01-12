@@ -38,6 +38,42 @@ https://www.testdome.com/questions/sql/workers/102293
 TBC
 ```
 
+#### Expected output
+
+```
+-- Expected output (in any order):
+-- name
+-- ----
+-- Mike
+
+-- Explanation:
+-- In this example.
+-- John is Mike's manager. Mike does not manage anyone.
+-- Mike is the only employee who does not manage anyone.
+```
+
+#### Smells / Concerns
+
+##### SQL script
+
+*INT* can be used instead of *INTEGER*.
+
+ We could use INT IDENTITY(1, 1) for the primary key but this is "good enough".
+
+It's good practice to enclose column names with [] braces, particularly for reserved words like ```[name]```.
+
+```
+CREATE TABLE employees (
+  id INTEGER NOT NULL PRIMARY KEY,
+  managerId INTEGER, 
+  name VARCHAR(30) NOT NULL,
+  FOREIGN KEY (managerId) REFERENCES employees(id)
+);
+
+INSERT INTO employees(id, managerId, name) VALUES(1, NULL, 'John');
+INSERT INTO employees(id, managerId, name) VALUES(2, 1, 'Mike');
+```
+
 ### SQLSessions
 
 Microsoft SQL Server / TSQL
