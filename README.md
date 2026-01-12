@@ -6,6 +6,10 @@ Methods will be refactored, rewritten for modern .NET, packages will be updated 
 
 ## C#
 
+#### General Code smells / concerns
+
+At the time of writing the code under test includes ```this.x``` statements where Visual Studio has been suggesting these should be removed for a long time. The C# code seems old?
+
 ### /AccountTest
 
 C#, Unit Tests
@@ -14,13 +18,23 @@ https://www.testdome.com/questions/c-sharp/account-test/146077
 
 #### Code smells / concerns
 
-At the time of writing the code under test includes ```this.x``` statements where Visual Studio has been suggesting these should be removed for a long time?
-
 **NUnit 3.12** was released in 2019, this code test seems out of date.
 
 Deposits and withdrawls of zero are nonsensical.
 
 ```double.MinValue``` and ```double.MaxValue``` are preferred.
+
+### /AlertService
+
+C#, Refactoring
+
+https://www.testdome.com/questions/c-sharp/alert-service/96005
+
+TBC
+
+#### Notes
+
+Noted in the new code but we probably want to store any date/times as UTC, simpler to store everything as UTC and then translate it back into the user's time zone for display, etc.
 
 ## SQL
 
