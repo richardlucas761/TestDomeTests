@@ -30,8 +30,6 @@ C#, Refactoring
 
 https://www.testdome.com/questions/c-sharp/alert-service/96005
 
-TBC
-
 #### Notes
 
 Noted in the new code but we probably want to store any date/times as UTC, simpler to store everything as UTC and then translate it back into the user's time zone for display, etc.

@@ -3,9 +3,13 @@
     /// <summary>
     /// Service for alert related operations.
     /// </summary>
-    public class AlertService
+    /// <remarks>
+    /// Constructor for AlertService.
+    /// </remarks>
+    /// <param name="alertDao">Alert DAO to use.</param>
+    public class AlertService(IAlertDao alertDao)
     {
-        private readonly AlertDao storage = new();
+        private readonly IAlertDao storage = alertDao;
 
         /// <summary>
         /// Raise an alert.
