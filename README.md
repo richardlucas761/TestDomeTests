@@ -98,7 +98,7 @@ INSERT INTO employees(id, managerId, name) VALUES(1, NULL, 'John');
 INSERT INTO employees(id, managerId, name) VALUES(2, 1, 'Mike');
 ```
 
-### SQLSessions
+### SQL Sessions
 
 Microsoft SQL Server / TSQL
 
@@ -106,9 +106,22 @@ https://www.testdome.com/questions/sql/sessions/147182
 
 There is a file ```sessionsSolution.sql``` with the same content in the sub directory but perhaps it would be simpler to just paste the SQL here! More discoverable in this README or in a file? 😊
 
+Solution SQL.
+
 ```
 SELECT [userId], AVG([duration]) FROM [sessions]
 GROUP BY [userId] 
 HAVING count(1) > 1
 ```
 
+### SQL Dictionary Search
+
+Microsoft SQL Server / TSQL
+
+https://www.testdome.com/questions/sql/dictionary-search/139387
+
+Solution SQL.
+
+```
+SELECT COUNT(1) FROM [Dictionary] WHERE [Word] LIKE '%bid%'
+```
