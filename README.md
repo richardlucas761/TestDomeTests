@@ -125,3 +125,27 @@ Solution SQL.
 ```
 SELECT COUNT(1) FROM [Dictionary] WHERE [Word] LIKE '%bid%'
 ```
+
+### Enrollment
+
+Microsoft SQL Server / TSQL
+
+https://www.testdome.com/questions/sql/enrollment/148372
+
+Solution SQL.
+
+```
+UPDATE [enrollments] SET [year] = 2015
+WHERE ID BETWEEN 20 AND 100
+```
+
+### Student Name
+
+https://www.testdome.com/questions/sql/student-name/134897
+
+Solution SQL.
+
+```
+SELECT COUNT(1) FROM [students]
+WHERE [firstName] = 'John'
+```
