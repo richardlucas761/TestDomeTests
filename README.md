@@ -42,11 +42,21 @@ https://www.testdome.com/questions/c-sharp/game-platform/134803
 
 #### Notes
 
+##### Poor choice of data type
+
 ```public static double CalculateFinalSpeed(double initialSpeed, int[] inclinations)```
 
 ```int``` is a poor choice of variable type here as the inclinations will be in the range 0..90
 
 ```sbyte	-128 to 127``` would be a better choice.
+
+##### Issue with the examples provided?
+
+Implementing the test case as described in the image gives the expected final speed.
+
+Implementing the test case as described in the text for the coding challenge does not?
+
+Or there is something more subtle here I'm missing.
 
 ## SQL
 
