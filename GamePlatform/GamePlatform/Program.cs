@@ -1,0 +1,1 @@
+﻿Console.WriteLine(GamePlatform.GamePlatform.CalculateFinalSpeed(60, [0, 30, 0, -45, 0]));

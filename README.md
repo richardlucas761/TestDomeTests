@@ -34,6 +34,20 @@ https://www.testdome.com/questions/c-sharp/alert-service/96005
 
 Noted in the new code but we probably want to store any date/times as UTC, simpler to store everything as UTC and then translate it back into the user's time zone for display, etc.
 
+### /GamePlatform
+
+C#
+
+https://www.testdome.com/questions/c-sharp/game-platform/134803
+
+#### Notes
+
+```public static double CalculateFinalSpeed(double initialSpeed, int[] inclinations)```
+
+```int``` is a poor choice of variable type here as the inclinations will be in the range 0..90
+
+```sbyte	-128 to 127``` would be a better choice.
+
 ## SQL
 
 Simple scripts will be included inline below, more complicated solutions have their own sub-folder.
