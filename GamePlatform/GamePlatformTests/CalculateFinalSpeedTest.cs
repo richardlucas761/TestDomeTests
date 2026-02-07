@@ -9,7 +9,19 @@ namespace GamePlatformTests
     public sealed class CalculateFinalSpeedTest
     {
         [TestMethod]
-        public void CalculateFinalSpeedReturnsExpectedValue()
+        public void CalculateFinalSpeedReturnsExpectedValueForExampleInImage()
+        {
+            // Arrange
+
+            // Act
+            var result = GamePlatform.GamePlatform.CalculateFinalSpeed(60, [0, -30, 0, 45, 0]);
+
+            // Assert
+            result.Should().Be(75);
+        }
+
+        [TestMethod]
+        public void CalculateFinalSpeedReturnsExpectedValueForExampleInText()
         {
             // Arrange
 
@@ -17,7 +29,20 @@ namespace GamePlatformTests
             var result = GamePlatform.GamePlatform.CalculateFinalSpeed(60, [0, 30, 0, -45, 0]);
 
             // Assert
-            result.Should().Be(75);
+            result.Should().Be(75); // TODO actually 45?
+        }
+
+        [TestMethod]
+        public void CalculateFinalSpeedReturnsInitialSpeedIfThereAreNoInclinations()
+        {
+            // Arrange
+            const int initialSpeed = 65;
+
+            // Act
+            var result = GamePlatform.GamePlatform.CalculateFinalSpeed(initialSpeed, []);
+
+            // Assert
+            result.Should().Be(initialSpeed);
         }
 
         [TestMethod]
