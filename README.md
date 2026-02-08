@@ -58,6 +58,10 @@ Implementing the test case as described in the text for the coding challenge doe
 
 Or there is something more subtle here I'm missing.
 
+### /MegaStore
+
+https://www.testdome.com/questions/c-sharp/mega-store/135517
+
 ## SQL
 
 Simple scripts will be included inline below, more complicated solutions have their own sub-folder.
