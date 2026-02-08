@@ -4,7 +4,7 @@ My answers and improvements to the public tests found here https://www.testdome.
 
 Methods will be refactored, rewritten for modern .NET, packages will be updated and coding issues in the public tests will be fixed.
 
-## C#
+## C# tests
 
 #### General Code smells / concerns
 
@@ -70,7 +70,7 @@ C#
 
 https://www.testdome.com/questions/c-sharp/mega-store/135517
 
-## SQL
+## SQL tests
 
 Simple scripts will be included inline below, more complicated solutions have their own sub-folder.
 
@@ -78,7 +78,7 @@ Simple scripts will be included inline below, more complicated solutions have th
 
 General purpose Microsoft SQL Server Database Project for use with SQL coding challenges.
 
-#### Online Alternative
+#### Online Database "Sandbox" Alternative
 
 https://sqliteonline.com
 
@@ -162,7 +162,7 @@ Solution SQL.
 SELECT COUNT(1) FROM [Dictionary] WHERE [Word] LIKE '%bid%'
 ```
 
-### Enrollment
+### SQL Enrollment
 
 Microsoft SQL Server / TSQL
 
@@ -175,7 +175,7 @@ UPDATE [enrollments] SET [year] = 2015
 WHERE ID BETWEEN 20 AND 100
 ```
 
-### Student Name
+### SQL Student Name
 
 https://www.testdome.com/questions/sql/student-name/134897
 
